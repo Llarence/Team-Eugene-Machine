@@ -27,6 +27,9 @@ public class Textscore : MonoBehaviour {
 				StartCoroutine (reset ());
 			}
 		}
+		if (Input.GetKeyDown ("z")) {
+			StartCoroutine (reset ());
+		}
 	}
 	IEnumerator reset (){
 		Level++;

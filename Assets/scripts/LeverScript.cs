@@ -8,8 +8,10 @@ public class LeverScript : MonoBehaviour {
 	public float movex;
 	public float movez;
 	int O;
-	int Ti;
-	public int Tis;
+	int idf;
+	int idb;
+	float Ti;
+	public float Tis;
 	Vector3 D;
 	bool Di = false;
 	void start () {
@@ -23,24 +25,47 @@ public class LeverScript : MonoBehaviour {
 			movez = movez / Tis;
 			Di = true;
 		}
-		if (O == 1 && Ti >= 1) {
-			D.Set(movex, movey, movez);
-			print ("Moving");
+		if (idb == 0 && Ti > 0) {
+			print ("moving");
+			D.Set (movex * Time.deltaTime, movey * Time.deltaTime, movez * Time.deltaTime);
 			print (D);
 			print (T.position);
-			Ti = Ti - 1;
+			Ti = Ti - Time.deltaTime;
 			T.position += D;
 			print (T.position);
 		}
+		if (Ti <= 0) {
+			idf = 0;
+		}
+		if (idf == 0 && Ti > 0) {
+			D.Set (movex * Time.deltaTime, movey * Time.deltaTime, movez * Time.deltaTime);
+			print ("Moving");
+			print (D);
+			print (T.position);
+			Ti = Ti - Time.deltaTime;
+			T.position -= D;
+			print (T.position);
+		}
+		if (Ti <= 0) {
+			idb = 0;
+		}
 	}
 
-	void OnTriggerStay () {
-			print ("Hitplayer");
-			if (O == 0) {
-				print (Ti);
-				O = 1;
-				Ti = Tis;
-				print (Ti);
+	void OnTriggerEnter () {
+		print ("Hitplayer");
+		if (O == 0 && idb == 0) {
+			idf = 1;
+			print (Ti);
+			O = 1;
+			Ti = Tis;
+			print (Ti);
+		}
+		if (O == 1 && idf == 0) {
+			print (Ti);
+			idb = 1;
+			O = 0;
+			Ti = Tis;
+			print (Ti);
 		}
 	}
 }
