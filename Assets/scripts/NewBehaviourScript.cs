@@ -17,10 +17,11 @@ public class NewBehaviourScript : MonoBehaviour {
 		float H = Input.GetAxis ("Horizontal");
 		float V = Input.GetAxis ("Vertical");
 		Move = new Vector3 (H, 0f, V);
-		transform.Translate (Move/10);
+		transform.Translate (Move * 6 * Time.deltaTime);
 	}
-	void Update (){
-		pitch += Input.GetAxis("Mouse X") * 2;
-		transform.eulerAngles = new Vector3(0f, pitch, 0f);
+
+	void Update () {
+		pitch += Input.GetAxis ("Mouse X") * 2;
+		transform.eulerAngles = new Vector3 (0f, pitch, 0f);
 	}
 }

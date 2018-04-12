@@ -27,15 +27,16 @@ public class Textscore : MonoBehaviour {
 				StartCoroutine (reset ());
 			}
 		}
-		if (Input.GetKeyDown ("z")) {
+		if (Input.GetKeyDown ("z") && Input.GetKey ("m") && Input.GetKey ("p")) {
 			StartCoroutine (reset ());
 		}
 	}
 	IEnumerator reset (){
 		Level++;
+		g.transform.position = new Vector3 (-17, 0, -44);
 		yield return new WaitForSeconds (1.5f);
-			Score = 0;
-			Hasrest = 0;
+		Score = 0;
+		Hasrest = 0;
 		g.transform.position = LS [Level - 1];
 		Vector3 pos = LS [Level - 1];
 		pos = new Vector3 (pos.x, pos.y + 2.5f, pos.z);

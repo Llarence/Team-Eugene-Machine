@@ -14,13 +14,12 @@ public class Mini : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		float H = Input.GetAxis ("MiniH");
 		float V = Input.GetAxis ("MiniV");
-		Move = new Vector3 (H, 0f, V);
-		transform.Translate (Move/10);
+		Move = new Vector3 (0f, 0f, V);
+		transform.Translate (Move * 6 * Time.deltaTime);
 	}
 	void Update (){
-		pitch += Input.GetAxis("Mouse X") * 2;
+		pitch += Input.GetAxis("MiniH") * 120 * Time.deltaTime;
 		transform.eulerAngles = new Vector3(0f, pitch, 0f);
 	}
 }
