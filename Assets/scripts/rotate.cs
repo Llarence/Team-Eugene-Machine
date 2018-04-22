@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class rotate : MonoBehaviour {
 	float pitch;
@@ -19,6 +20,7 @@ public class rotate : MonoBehaviour {
 		transform.eulerAngles = new Vector3(yaw, pitch, 0f);
 		if (Input.GetKeyDown ("escape")) {
 			Cursor.lockState = CursorLockMode.None;
+			SceneManager.LoadScene ("Menu");
 		}
 
 	}

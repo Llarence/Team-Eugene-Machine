@@ -11,6 +11,9 @@ public class Textscore : MonoBehaviour {
 	public Vector3[] LS;
 	public GameObject g;
 	public GameObject g1;
+	public Camera CM;
+	public GameObject CL;
+	public Camera CMZ;
 
 	// Use this for initialization
 	void Start () {
@@ -33,8 +36,13 @@ public class Textscore : MonoBehaviour {
 	}
 	IEnumerator reset (){
 		Level++;
-		g.transform.position = new Vector3 (-17, 0, -44);
-		yield return new WaitForSeconds (1.5f);
+		CM.enabled = false;
+		CMZ.enabled = false;
+		CL.SetActive(true);
+		yield return new WaitForSeconds (5);
+		CM.enabled = true;
+		CMZ.enabled = true;
+		CL.SetActive(false);
 		Score = 0;
 		Hasrest = 0;
 		g.transform.position = LS [Level - 1];
