@@ -25,7 +25,7 @@ public class change : MonoBehaviour {
 			print (GetComponent<Renderer> ().material);
 			if (HasActivated == 0){
 				GetComponent<AudioSource> ().Play ();
-				script.Score++;
+					script.Score++;
 			}
 			HasActivated = 1;
 			GetComponent<Renderer> ().material = bright;
