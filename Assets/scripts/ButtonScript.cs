@@ -25,7 +25,6 @@ public class ButtonScript : MonoBehaviour {
 		}
 		if (O == 1 && Ti > 0) {
 			D.Set(movex * Time.deltaTime, movey * Time.deltaTime, movez * Time.deltaTime);
-			print ("Moving");
 			print (D);
 			print (T.position);
 			Ti = Ti - Time.deltaTime;
@@ -35,7 +34,6 @@ public class ButtonScript : MonoBehaviour {
 	}
 
 	void OnTriggerStay () {
-		print ("Hitplayer");
 		if (O == 0) {
 			print (Ti);
 			O = 1;

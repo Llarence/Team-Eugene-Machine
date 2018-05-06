@@ -26,7 +26,6 @@ public class LeverScript : MonoBehaviour {
 			Di = true;
 		}
 		if (idb == 0 && Ti > 0) {
-			print ("moving");
 			D.Set (movex * Time.deltaTime, movey * Time.deltaTime, movez * Time.deltaTime);
 			print (D);
 			print (T.position);
@@ -39,7 +38,6 @@ public class LeverScript : MonoBehaviour {
 		}
 		if (idf == 0 && Ti > 0) {
 			D.Set (movex * Time.deltaTime, movey * Time.deltaTime, movez * Time.deltaTime);
-			print ("Moving");
 			print (D);
 			print (T.position);
 			Ti = Ti - Time.deltaTime;
@@ -52,7 +50,6 @@ public class LeverScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter () {
-		print ("Hitplayer");
 		if (O == 0 && idb == 0) {
 			idf = 1;
 			print (Ti);
