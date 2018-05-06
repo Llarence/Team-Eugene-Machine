@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class Textscore : MonoBehaviour {
 	
 	public Text text;
@@ -40,6 +42,19 @@ public class Textscore : MonoBehaviour {
 		CMZ.enabled = false;
 		CL.SetActive(true);
 		yield return new WaitForSeconds (5);
+		if (Level == 5) {
+			yield return new WaitForSeconds (5);
+			CL.transform.eulerAngles = new Vector3 (0, 0, 0);
+		}
+		if (Level == 9) {
+			yield return new WaitForSeconds (2.1f);
+			CL.transform.eulerAngles = new Vector3 (0, 0, 0);
+		}
+		if (Level == 13) {
+			yield return new WaitForSeconds (15);
+			CL.transform.eulerAngles = new Vector3 (0, 0, 0);
+			SceneManager.LoadScene ("Credits");
+		}
 		CM.enabled = true;
 		CMZ.enabled = true;
 		CL.SetActive(false);
