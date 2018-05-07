@@ -11,6 +11,7 @@ public class rotate : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 	}
 	
 	// Update is called once per frame
@@ -19,6 +20,7 @@ public class rotate : MonoBehaviour {
 		pitch += Input.GetAxis("Mouse X") * 2;
 		transform.eulerAngles = new Vector3(yaw, pitch, 0f);
 		if (Input.GetKeyDown ("escape")) {
+			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.None;
 			SceneManager.LoadScene ("Menu");
 		}
